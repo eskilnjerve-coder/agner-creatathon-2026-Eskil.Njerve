@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Architects+Daughter&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-handwritten: "Architects Daughter", cursive;
+  --font-serif: "Libre Baskerville", Georgia, serif;
+  
+  --color-cream: #DCC09B;
+  --color-emerald: #1B4332;
+  --color-coffee: #3E2723;
+  --color-rust: #A44A3F;
+  --color-paper: #fff9f0;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-coffee font-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold tracking-tight;
+  }
+}
+
+/* Editorial Style Borders & Shadows */
+.sketch-border {
+  border: 3px solid var(--color-coffee);
+  border-radius: 12px 4px 14px 5px;
+}
+
+.sketch-card {
+  @apply bg-paper p-6 transition-transform duration-200;
+  border: 3px solid var(--color-coffee);
+  border-radius: 8px 20px 6px 15px;
+  box-shadow: 4px 4px 0px var(--color-coffee);
+}
+
+.sketch-button {
+  @apply bg-emerald text-cream px-6 py-2 transition-all duration-200 font-sans font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2;
+  border: 3px solid var(--color-coffee);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.sketch-button:hover {
+  @apply transform -translate-x-0.5 -translate-y-0.5;
+  box-shadow: 4px 4px 0px var(--color-coffee);
+  filter: brightness(1.1);
+}
+
+.sketch-button:active {
+  @apply transform translate-x-0.5 translate-y-0.5 shadow-none;
+}
+
+.sketch-input {
+  @apply bg-white px-4 py-2 w-full outline-none focus:ring-2 focus:ring-emerald/20 transition-all font-sans;
+  border: 2px solid var(--color-coffee);
+  border-radius: 4px;
+}
+
+.nav-link {
+  @apply flex flex-col items-center justify-center text-cream opacity-70 hover:opacity-100 transition-opacity font-sans;
+}
+
+.nav-link.active {
+  @apply opacity-100 font-bold;
+}
+
+/* Texture overlay for that organic feel */
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/felt.png");
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 50;
+}
